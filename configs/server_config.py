@@ -1,7 +1,7 @@
 import sys
 
 # LLM 模型运行设备。设为"auto"会自动检测
-LLM_DEVICE = "cuda"
+LLM_DEVICE = "cpu"
 
 # httpx 请求默认超时时间（秒）。如果加载模型或对话较慢，出现超时错误，可以适当加大该值。
 HTTPX_DEFAULT_TIMEOUT = 300.0
@@ -29,7 +29,7 @@ FSCHAT_MODEL_WORKERS = {
     },
 
     "chatglm3-6b": {
-        "device": "cuda",
+        "device": "cpu",
     },
 
     # 在线模型只需要配置Model Worker的端口即可

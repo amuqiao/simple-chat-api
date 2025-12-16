@@ -32,7 +32,7 @@ MODEL_PATH = {
         # 默认使用glm4-9b-chat
         "glm4-9b-chat": "/home/00_rag/model/ZhipuAI/chatglm4-9b-chat",
 
-        "chatglm3-6b": "/e/github_project/models/chatglm3-6b/",
+        "chatglm3-6b": "E:\\github_project\\models\\chatglm3-6b\\",
 
         # 可扩展其他的开源大模型
 
@@ -47,7 +47,7 @@ MODEL_PATH = {
     },
 
     "reranker": {
-        "bge-reranker-large": "/e/github_project/models/bge-reranker-large/",
+        "bge-reranker-large": "E:\\github_project\\models\\bge-reranker-large\\",
 
     }
 }

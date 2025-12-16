@@ -289,9 +289,9 @@ def create_model_worker_app(log_level: str = "INFO", **kwargs) -> FastAPI:
 
         from fastchat.serve.model_worker import app, GptqConfig, AWQConfig, ModelWorker, worker_id
 
-        args.gpus = "0"  # GPU的编号,如果有多个GPU，可以设置为"0,1,2,3"
-        args.max_gpu_memory = "22GiB"
-        args.num_gpus = 1  # model worker的切分是model并行，这里填写显卡的数量
+        args.gpus = ""  # CPU模式下不需要指定GPU编号
+        args.max_gpu_memory = None  # CPU模式下不需要设置GPU内存
+        args.num_gpus = 0  # CPU模式下设置为0
 
         args.load_8bit = False
         args.cpu_offloading = None
@@ -305,7 +305,7 @@ def create_model_worker_app(log_level: str = "INFO", **kwargs) -> FastAPI:
 
         for k, v in kwargs.items():
             setattr(args, k, v)
-        if args.gpus:
+        if args.gpus and args.num_gpus > 0:
             if args.num_gpus is None:
                 args.num_gpus = len(args.gpus.split(','))
             if len(args.gpus.split(",")) < args.num_gpus:

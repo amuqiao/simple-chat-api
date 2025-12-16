@@ -15,3 +15,6 @@ venv/
 
 # Ignore log files
 *.log
+
+# Ignore Docker volumes
+/docker/volumes/*
